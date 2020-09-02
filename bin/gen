@@ -1,0 +1,176 @@
+#!/usr/bin/env python
+#
+# jomiel-messages
+#
+# Copyright
+#  2020 Toni Gündoğdu
+#
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# This script generates the python bindings for the jomiel protobuf
+# message declarations.
+#
+# This a wrapper script for src/:pkgname/proto/bin/bootstrap
+#
+from glob import glob
+from logging import basicConfig
+from logging import getLogger
+from logging import INFO
+from os import chdir
+from os import EX_OK
+from os import getcwd
+from os import rename
+from os import walk
+from os.path import join
+from subprocess import call
+
+basicConfig(format="%(message)s", level=INFO)
+log = getLogger(__name__)
+
+pkg_dirname = walk("src/").__next__()[1][0]
+base_dir = getcwd()
+
+
+def exit_with(exit_status, msg=None):
+    """Exit to system.
+
+    Args:
+        exit_status (int): exit with the status code
+        msg (str): print the message, if any, before exiting
+
+    """
+    from sys import exit
+
+    if msg:
+        log.error(msg)
+    exit(exit_status)
+
+
+def parse_args():
+    """Parse cmd line args."""
+    from argparse import ArgumentDefaultsHelpFormatter
+    from argparse import ArgumentParser
+    from textwrap import dedent
+
+    descr = """
+        Generates jomiel protobuf bindings for python. Wraps
+        src/:pkgname/proto/bin/bootstrap script.
+
+        Typically run a) when the repo is cloned and the bindings are
+        missing, or b) each time a new release is made from the repo --
+        or c) if the .proto definitions have changed and the python
+        bindings need to be re-generated.
+    """
+
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        description=dedent(descr),
+    )
+
+    parser.add_argument(
+        "-b",
+        "--bootstrap",
+        dest="bootstrap_path",
+        help="Path to script used to generate protobuf bindings",
+        default=f"src/{pkg_dirname}/proto/bin/bootstrap",
+        metavar="path",
+    )
+
+    parser.add_argument(
+        "-p",
+        "--proto",
+        dest="proto_path",
+        help="Path to root directory containing .proto files",
+        default=f"src/{pkg_dirname}/proto",
+        metavar="path",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output",
+        dest="output_path",
+        help="Write generated bindings to this directory",
+        default="src/",
+        metavar="path",
+    )
+
+    return parser.parse_args()
+
+
+def main():
+    """main"""
+
+    def generate_protobuf_bindings():
+        """Compile the Protocol Buffer declarations.
+
+        Calls the `bootstrap` script of jomiel-kore to compile the proto
+        buffer declarations for python.
+
+        Args:
+            opts (obj): the parsed args
+
+        """
+        args = [
+            opts.bootstrap_path,
+            "-p",
+            opts.proto_path,
+            "-l",
+            "python",
+            "-d",
+            opts.output_path,
+        ]
+
+        if call(args) != EX_OK:
+            exit_with(1)
+
+    def apply_patches():
+        """apply patches."""
+
+        patch_files = sorted(glob(join(base_dir, "patches/*.patch")))
+        # [print(p) for p in patch_files]
+
+        chdir(join(base_dir, "src/jomiel_messages/proto"))
+
+        for _file in patch_files:
+            args = [
+                "patch",
+                "-p1",
+                "-i",
+                _file,
+            ]
+            # [print(a) for a in args]
+
+            if call(args) != EX_OK:
+                exit_with(1)
+
+        rename("jomiel", "jomiel_messages")
+        chdir(base_dir)
+
+    def revert_changes():
+        """revert changes made to .proto files."""
+
+        chdir(join(base_dir, "src/jomiel_messages/proto"))
+        rename("jomiel_messages", "jomiel")
+
+        chdir(base_dir)
+
+        args = [
+            "git",
+            "checkout",
+            "src",
+        ]
+
+        if call(args) != EX_OK:
+            exit_with(1)
+
+    opts = parse_args()
+    apply_patches()
+    generate_protobuf_bindings()
+    revert_changes()
+
+
+if __name__ == "__main__":
+    main()
+
+# vim: set ts=4 sw=4 tw=72 expandtab:
