@@ -1,0 +1,12 @@
+include .pre-commit-config.yaml .flake8 pyproject.toml tox.ini
+
+recursive-include src/jomiel_messages/protobuf *_pb2.py
+
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude .gitignore
+
+prune src/jomiel_messages/proto/
+prune patches/
+prune build/
+prune bin/
