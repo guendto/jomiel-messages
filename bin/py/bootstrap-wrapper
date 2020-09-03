@@ -1,0 +1,126 @@
+#!/usr/bin/env python
+#
+# jomiel-proto
+#
+# Copyright
+#  2020 Toni Gündoğdu
+#
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# This script generates the python bindings for the jomiel protobuf
+# message declarations.
+#
+# This a wrapper script for src/:pkgname/comm/proto/bin/bootstrap
+#
+from logging import basicConfig
+from logging import getLogger
+from logging import INFO
+from os import walk
+
+basicConfig(format="%(message)s", level=INFO)
+log = getLogger(__name__)
+
+pkg_dirname = walk("src/").__next__()[1][0]
+
+
+def exit_with(self, exit_status, msg=None):
+    """Exit to system.
+
+    Args:
+        exit_status (int): exit with the status code
+        msg (str): print the message, if any, before exiting
+
+    """
+    from sys import exit
+
+    if msg:
+        log.error(msg)
+    exit(exit_status)
+
+
+def parse_args():
+    """Parse cmd line args."""
+    from argparse import ArgumentDefaultsHelpFormatter
+    from argparse import ArgumentParser
+    from textwrap import dedent
+
+    descr = """
+        Generates jomiel protobuf bindings for python. Wraps
+        src/:pkgname/comm/proto/bin/bootstrap script.
+
+        Typically run a) when the repo is cloned and the bindings are
+        missing, or b) each time a new release is made from the repo --
+        or c) if the .proto definitions have changed and the python
+        bindings need to be re-generated.
+    """
+
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        description=dedent(descr),
+    )
+
+    parser.add_argument(
+        "--bootstrap",
+        dest="bootstrap_path",
+        help="Path to script used to generate protobuf bindings",
+        default=f"src/{pkg_dirname}/comm/proto/bin/bootstrap",
+        metavar="path",
+    )
+
+    parser.add_argument(
+        "--proto",
+        dest="proto_path",
+        help="Path to root directory containing .proto files",
+        default=f"src/{pkg_dirname}/comm/proto",
+        metavar="path",
+    )
+
+    parser.add_argument(
+        "--output",
+        dest="output_path",
+        help="Write generated bindings to this directory",
+        default="src/",
+        metavar="path",
+    )
+
+    return parser.parse_args()
+
+
+def main():
+    """main"""
+
+    def generate_protobuf_bindings():
+        """Compile the Protocol Buffer declarations.
+
+        Calls the `bootstrap` script of jomiel-kore to compile the proto
+        buffer declarations for python.
+
+        Args:
+            opts (obj): the parsed args
+
+        """
+        args = [
+            opts.bootstrap_path,
+            "-p",
+            opts.proto_path,
+            "-l",
+            "python",
+            "-d",
+            opts.output_path,
+        ]
+
+        from subprocess import call
+        from os import EX_OK
+
+        if call(args) != EX_OK:
+            exit_with(1)
+
+    opts = parse_args()
+    generate_protobuf_bindings()
+
+
+if __name__ == "__main__":
+    main()
+
+# vim: set ts=4 sw=4 tw=72 expandtab:
