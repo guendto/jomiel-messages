@@ -51,6 +51,16 @@ else:
   # ...
 ```
 
+## Building packages from repo
+
+```shell
+./bin/gen
+pip install pep517
+python -m pep517.build .
+```
+
+See dist/ for the packages.
+
 ## Acknowledgements
 
 ### Subprojects
