@@ -1,0 +1,26 @@
+From b41e18b96e9d73656ba1cd9ca5e2a67cdd66d6a2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Toni=20G=C3=BCndo=C4=9Fdu?=
+ <47444442+guendto@users.noreply.github.com>
+Date: Wed, 2 Sep 2020 23:02:13 +0300
+Subject: [PATCH 2/3] media.proto: change to use jomiel_messages
+
+---
+ jomiel/protobuf/v1alpha1/media.proto | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/jomiel/protobuf/v1alpha1/media.proto b/jomiel/protobuf/v1alpha1/media.proto
+index 15f7d9b..55cfa9d 100644
+--- a/jomiel/protobuf/v1alpha1/media.proto
++++ b/jomiel/protobuf/v1alpha1/media.proto
+@@ -12,7 +12,7 @@
+ 
+ syntax = "proto3";
+ 
+-package jomiel.protobuf.v1alpha1;
++package jomiel_messages.protobuf.v1alpha1;
+ 
+ option java_package = "io.github.jomiel.protobuf.v1alpha1";
+ option java_outer_classname = "MediaProto";
+-- 
+2.20.1
+
