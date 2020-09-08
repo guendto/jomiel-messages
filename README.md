@@ -67,7 +67,7 @@ See dist/ for the packages.
 
 `jomiel-messages` has the following subtrees (see git-subtree):
 
-- [src/jomiel/proto/](src/jomiel_messages/proto/) of [jomiel-proto]
+- [src/jomiel_messages/proto/](src/jomiel_messages/proto/) of [jomiel-proto]
 
 [jomiel-proto]: https://github.com/guendto/jomiel-proto/
 [jomiel]: https://github.com/guendto/jomiel
