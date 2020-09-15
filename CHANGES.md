@@ -8,6 +8,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v0.1.2] - 2020-09-15
+
+### Added
+
+- `CHANGES.md`: add file
+
 ## [v0.1.1] - 2020-09-13
 
 ### Added
@@ -18,6 +24,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - First public preview release.
 
-[unreleased]: https://github.com/guendto/jomiel-messages/compare/v0.1.1..HEAD
+[unreleased]: https://github.com/guendto/jomiel-messages/compare/v0.1.2..HEAD
+[v0.1.2]: https://github.com/guendto/jomiel-messages/compare/v0.1.1..v0.1.2
 [v0.1.1]: https://github.com/guendto/jomiel-messages/compare/v0.1.0..v0.1.1
 [v0.1.0]: https://github.com/guendto/jomiel-messages/releases/tag/v0.1.0
