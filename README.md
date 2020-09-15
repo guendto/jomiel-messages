@@ -54,12 +54,15 @@ else:
 ## Building packages from repo
 
 ```shell
+git clone https://github.com/guendto/jomiel-messages
+cd jomiel-messages
 ./bin/gen
 pip install pep517
-python -m pep517.build .
+git tag -s KEYID -am 'jomiel-messages version VERSION (INITIALS)' TAGNAME
+python -m pep517.build [-s|-b] .
 ```
 
-See dist/ for the packages.
+The packages are created under the dist/ dir.
 
 ## Acknowledgements
 
