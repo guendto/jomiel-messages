@@ -3,10 +3,12 @@
 ![pypi-pyversions]
 ![pypi-v]
 ![pypi-wheel]
+![pypi-status]
 
 [pypi-pyversions]: https://img.shields.io/pypi/pyversions/jomiel-messages?color=%230a66dc
 [pypi-v]: https://img.shields.io/pypi/v/jomiel-messages?color=%230a66dc
 [pypi-wheel]: https://img.shields.io/pypi/wheel/jomiel-messages?color=%230a66dc
+[pypi-status]: https://img.shields.io/pypi/status/jomiel-messages?color=%230a66dc
 
 The Python bindings for the [jomiel] protobuf messages.
 
