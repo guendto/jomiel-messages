@@ -1,5 +1,9 @@
 # jomiel-messages
 
+![pypi-pyversions]
+
+[pypi-pyversions]: https://img.shields.io/pypi/pyversions/jomiel-messages?color=%230a66dc
+
 The Python bindings for the [jomiel] protobuf messages.
 
 ## About
