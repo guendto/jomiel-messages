@@ -76,9 +76,7 @@ The packages are created under the dist/ dir.
 
 ## Acknowledgements
 
-### Subprojects
-
-`jomiel-messages` has the following subtrees (see git-subtree):
+### Subprojects (as git subtrees)
 
 - [src/jomiel_messages/proto/](src/jomiel_messages/proto/) of [jomiel-proto]
 
