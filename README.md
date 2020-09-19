@@ -69,8 +69,8 @@ else:
 git clone https://github.com/guendto/jomiel-messages
 cd jomiel-messages
 ./bin/gen
-pip install pep517
 git tag -s KEYID -am 'jomiel-messages version VERSION (INITIALS)' TAGNAME
+pip install pep517
 python -m pep517.build [-s|-b] .
 ```
 
