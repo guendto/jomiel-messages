@@ -12,6 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Docs(README.md): Update with new badges, reshuffle sections, etc.
 - Packaging: Update development status to "beta"
+- Packaging: Add missing `author_email` address
 
 ## [v0.1.2] - 2020-09-15
 
