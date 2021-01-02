@@ -10,6 +10,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Docs(README.md): Update with new badges, reshuffle sections, etc.
 - Packaging: Update development status to "beta"
 
 ## [v0.1.2] - 2020-09-15
