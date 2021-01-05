@@ -15,7 +15,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Packaging: Merge jomiel-proto(subtree) changes, start using v1beta1
 - Packaging: Update development status to "beta"
 - Packaging: Add missing `author_email` address
-- Docs(README.md): Update with new badges, reshuffle sections, etc.
+- Docs: Update `README.md` with new badges, reshuffle sections, etc.
 
 ## [v0.1.2] - 2020-09-15
 
