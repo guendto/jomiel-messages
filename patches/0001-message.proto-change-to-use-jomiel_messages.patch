@@ -1,52 +1,52 @@
-From d6053e9db9d2a9a5f5f4d901d373a3714b5188ff Mon Sep 17 00:00:00 2001
+From c81f1a01bae962d517deea028717e0e12fae8467 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Toni=20G=C3=BCndo=C4=9Fdu?=
  <47444442+guendto@users.noreply.github.com>
-Date: Sun, 13 Sep 2020 20:45:31 +0300
+Date: Tue, 5 Jan 2021 13:12:21 +0200
 Subject: [PATCH 1/3] message.proto: change to use jomiel_messages
 
 ---
- jomiel/protobuf/v1alpha1/message.proto | 12 ++++++------
+ jomiel/protobuf/v1beta1/message.proto | 12 ++++++------
  1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/jomiel/protobuf/v1alpha1/message.proto b/jomiel/protobuf/v1alpha1/message.proto
-index 7f2cfa2..2a19da8 100644
---- a/jomiel/protobuf/v1alpha1/message.proto
-+++ b/jomiel/protobuf/v1alpha1/message.proto
+diff --git a/jomiel/protobuf/v1beta1/message.proto b/jomiel/protobuf/v1beta1/message.proto
+index cfa6da4..2373b41 100644
+--- a/jomiel/protobuf/v1beta1/message.proto
++++ b/jomiel/protobuf/v1beta1/message.proto
 @@ -12,7 +12,7 @@
  
  syntax = "proto3";
  
--package jomiel.protobuf.v1alpha1;
-+package jomiel_messages.protobuf.v1alpha1;
+-package jomiel.protobuf.v1beta1;
++package jomiel_messages.protobuf.v1beta1;
  
- option java_package = "io.github.jomiel.protobuf.v1alpha1";
+ option java_package = "io.github.jomiel.protobuf.v1beta1";
  option java_outer_classname = "MessageProto";
-@@ -21,20 +21,20 @@ option csharp_namespace = "Jomiel.ProtoBuf.V1Alpha1";
- option php_namespace = "Jomiel\\ProtoBuf\\V1alpha1";
- option go_package = "jomiel/protobuf/v1alpha1";
+@@ -21,20 +21,20 @@ option csharp_namespace = "Jomiel.ProtoBuf.V1Beta1";
+ option php_namespace = "Jomiel\\ProtoBuf\\V1beta1";
+ option go_package = "jomiel/protobuf/v1beta1";
  
--import "jomiel/protobuf/v1alpha1/media.proto";
--import "jomiel/protobuf/v1alpha1/status.proto";
-+import "jomiel_messages/protobuf/v1alpha1/media.proto";
-+import "jomiel_messages/protobuf/v1alpha1/status.proto";
+-import "jomiel/protobuf/v1beta1/media.proto";
+-import "jomiel/protobuf/v1beta1/status.proto";
++import "jomiel_messages/protobuf/v1beta1/media.proto";
++import "jomiel_messages/protobuf/v1beta1/status.proto";
  
  message Inquiry {
      oneof inquiry {
--        jomiel.protobuf.v1alpha1.MediaInquiry media = 1;
-+        jomiel_messages.protobuf.v1alpha1.MediaInquiry media = 1;
+-        jomiel.protobuf.v1beta1.MediaInquiry media = 1;
++        jomiel_messages.protobuf.v1beta1.MediaInquiry media = 1;
      }
  }
  
  message Response {
      oneof response {
--        jomiel.protobuf.v1alpha1.MediaResponse media = 1;
-+        jomiel_messages.protobuf.v1alpha1.MediaResponse media = 1;
+-        jomiel.protobuf.v1beta1.MediaResponse media = 1;
++        jomiel_messages.protobuf.v1beta1.MediaResponse media = 1;
      }
--    jomiel.protobuf.v1alpha1.ResponseStatus status = 2;
-+    jomiel_messages.protobuf.v1alpha1.ResponseStatus status = 2;
+-    jomiel.protobuf.v1beta1.ResponseStatus status = 2;
++    jomiel_messages.protobuf.v1beta1.ResponseStatus status = 2;
  }
  
  // vim: set ts=4 sw=4 tw=72 expandtab:
 -- 
-2.27.0
+2.29.2
 
