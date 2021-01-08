@@ -29,11 +29,11 @@
 #   as such to protoc(1)
 #
 # Examples:
-#   bootstrap -p jomiel/comm/proto/ -l python -d jomiel/data/bindings/
-#       # Compiling the python bindings for 'jomiel'.
+#   bootstrap -p jomiel-proto/ -l python -d bindings/
+#       # Compile the Python bindings for 'jomiel'.
 #
-#   bootstrap -p ../proto/ -l c -d src/demo/proto/
-#       # Compiling the c bindings for the jomiel-examples/c.
+#   bootstrap -p jomiel-proto/ -l c -d bindings/
+#       # Same as above, but for C language.
 #
 set -e;
 
