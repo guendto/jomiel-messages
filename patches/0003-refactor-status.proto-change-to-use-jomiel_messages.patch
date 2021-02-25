@@ -1,15 +1,15 @@
-From e8460449112373360ce24abeee6e3d734d261c7c Mon Sep 17 00:00:00 2001
+From 382d3418c761eb4823bb697d10101e97afddb09b Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Toni=20G=C3=BCndo=C4=9Fdu?=
  <47444442+guendto@users.noreply.github.com>
 Date: Tue, 5 Jan 2021 13:13:22 +0200
-Subject: [PATCH 3/3] status.proto: change to use jomiel_messages
+Subject: [PATCH 3/3] refactor(status.proto): change to use jomiel_messages
 
 ---
  jomiel/protobuf/v1beta1/status.proto | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/jomiel/protobuf/v1beta1/status.proto b/jomiel/protobuf/v1beta1/status.proto
-index 89928ef..1482e74 100644
+index c1c38f8..b53763d 100644
 --- a/jomiel/protobuf/v1beta1/status.proto
 +++ b/jomiel/protobuf/v1beta1/status.proto
 @@ -12,7 +12,7 @@
@@ -19,7 +19,7 @@ index 89928ef..1482e74 100644
 -package jomiel.protobuf.v1beta1;
 +package jomiel_messages.protobuf.v1beta1;
  
- option java_package = "io.github.jomiel.protobuf.v1beta1";
+ option java_package = "jomiel.protobuf.v1beta1";
  option java_outer_classname = "StatusProto";
 -- 
 2.29.2
