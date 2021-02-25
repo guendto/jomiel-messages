@@ -1,15 +1,15 @@
-From 622fd609d1cd46d4150d5b0f3d978dad14552a72 Mon Sep 17 00:00:00 2001
+From 095092cb3c9a2fd9b48839097e6933b8bfac90fb Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Toni=20G=C3=BCndo=C4=9Fdu?=
  <47444442+guendto@users.noreply.github.com>
 Date: Tue, 5 Jan 2021 13:13:19 +0200
-Subject: [PATCH 2/3] media.proto: change to use jomiel_messages
+Subject: [PATCH 2/3] refactor(media.proto): change to use jomiel_messages
 
 ---
  jomiel/protobuf/v1beta1/media.proto | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/jomiel/protobuf/v1beta1/media.proto b/jomiel/protobuf/v1beta1/media.proto
-index 59a5428..9edeb88 100644
+index 8aa498b..c3ad00c 100644
 --- a/jomiel/protobuf/v1beta1/media.proto
 +++ b/jomiel/protobuf/v1beta1/media.proto
 @@ -12,7 +12,7 @@
@@ -19,7 +19,7 @@ index 59a5428..9edeb88 100644
 -package jomiel.protobuf.v1beta1;
 +package jomiel_messages.protobuf.v1beta1;
  
- option java_package = "io.github.jomiel.protobuf.v1beta1";
+ option java_package = "jomiel.protobuf.v1beta1";
  option java_outer_classname = "MediaProto";
 -- 
 2.29.2
