@@ -11,16 +11,28 @@
 
 The Python bindings for the [jomiel] protobuf messages.
 
+[jomiel]: https://github.com/guendto/jomiel
+
 ## About
 
-The purpose of this project is to provide the [jomiel] protobuf message
-bindings package that are `easy to install` from PyPI. The bundled have
-been generated from the protobuf declaration files of [jomiel-proto].
+The bindings have been generated from the protobuf declaration files of
+[jomiel-proto]
+
+[jomiel-proto]: https://github.com/guendto/jomiel-proto/
 
 ## Installation
 
 ```shell
 pip install jomiel-messages
+```
+
+Install from the repository, e.g. for development:
+
+```shell
+git clone https://github.com/guendto/jomiel-messages.git
+cd jomiel-messages
+./bin/gen
+pip install -e .
 ```
 
 ## Usage
@@ -55,30 +67,16 @@ else:
   # ...
 ```
 
-## Building packages from repo
-
-```shell
-git clone https://github.com/guendto/jomiel-messages
-cd jomiel-messages
-./bin/gen
-git tag -s KEYID -am 'jomiel-messages version VERSION (INITIALS)' TAGNAME
-pip install pep517
-python -m pep517.build [-s|-b] .
-```
-
-The packages are created under the dist/ dir.
-
 ## License
 
 `jomiel-messages` is licensed under the [Apache License version
 2.0][aplv2].
 
+[aplv2]: https://www.tldrlegal.com/l/apache2
+
 ## Acknowledgements
 
 ### Subprojects (as git subtrees)
 
-- [src/jomiel_messages/proto/](src/jomiel_messages/proto/) of [jomiel-proto]
-
-[jomiel-proto]: https://github.com/guendto/jomiel-proto/
-[jomiel]: https://github.com/guendto/jomiel
-[aplv2]: https://www.tldrlegal.com/l/apache2
+- [src/jomiel_messages/proto/](src/jomiel_messages/proto/) of
+  [jomiel-proto]
