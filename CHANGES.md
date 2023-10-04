@@ -8,7 +8,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [v0.2.1] - 2023-09-29
+## [v0.2.1.1] - 2023-10-04
+
+- Fix: add missing generated files, missing from the earlier release.
+
+## [v0.2.1.1] - 2023-09-29
 
 - Fix: regenerate protos (generated code is out of date and must be regenerated with protoc >= 3.19.0)
 
@@ -37,7 +41,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - First public preview release.
 
-[unreleased]: https://github.com/guendto/jomiel-messages/compare/v0.2.1..HEAD
+[unreleased]: https://github.com/guendto/jomiel-messages/compare/v0.2.1.1..HEAD
+[v0.2.1.1]: https://github.com/guendto/jomiel-messages/compare/v0.2.1..v0.2.1.1
 [v0.2.1]: https://github.com/guendto/jomiel-messages/compare/v0.2.0..v0.2.1
 [v0.2.0]: https://github.com/guendto/jomiel-messages/compare/v0.1.2..v0.2.0
 [v0.1.2]: https://github.com/guendto/jomiel-messages/compare/v0.1.1..v0.1.2
